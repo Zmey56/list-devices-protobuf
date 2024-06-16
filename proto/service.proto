@@ -1,0 +1,22 @@
+syntax = "proto3";
+package proto;
+
+option go_package = "./";
+
+message DeviceRequest {
+}
+
+message Device {
+  string device_path = 1;
+  string vendor_id = 2;
+  string product_id = 3;
+  string device_type = 4;
+}
+
+message DeviceList {
+  repeated Device device = 1;
+}
+
+service DeviceService {
+  rpc ListDevices (DeviceRequest) returns (DeviceList) {}
+}
